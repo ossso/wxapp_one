@@ -1,4 +1,59 @@
 /**index.wxss**/
+.article-item {
+    padding: 20rpx;
+    border-bottom: 1rpx solid #eee;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+}
+
+.article-item .article-multi {
+    width: 480rpx;
+}
+
+.article-item .article-title {
+    height: 120rpx;
+    line-height: 40rpx;
+    font-size: 32rpx;
+    color: #222;
+    overflow: hidden;
+}
+
+.article-item .article-info {
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 24rpx;
+    color: #888;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+}
+
+.article-item .article-info .author-name {
+    margin-right: 10rpx;
+}
+
+.article-item .thumb {
+    width: 200rpx;
+    height: 160rpx;
+}
+
+.article-item .thumb image {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
 .swiper-container {
     width: 100%;
     height: 400rpx;
@@ -17,7 +72,6 @@
     position: relative;
     width: 100%;
     height: 92rpx;
-    margin: 10rpx 0;
     padding: 15rpx;
     border-top: 1rpx solid #ddd;
     border-bottom: 1rpx solid #ddd;
@@ -44,4 +98,8 @@
     width: 40rpx;
     height: 40rpx;
     margin-top: -20rpx;
+}
+
+.article-list-container {
+    background: #fff;
 }

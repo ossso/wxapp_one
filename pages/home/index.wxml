@@ -13,3 +13,16 @@
     <view class="search-input">搜索</view>
     <image class="search-icon" src="../../images/icon/search-icon.svg" mode="aspectFill" />
 </view>
+
+<import src="/pages/template/article-item.wxml" />
+<view class="article-list-container">
+    <block wx:for="{{list}}" wx:key="{{index}}">
+        <template is="article-item" data="{{...item}}" />
+    </block>
+</view>
+
+<import src="/pages/template/loading.wxml" />
+<template is="global-loading-bar" wx:if="{{loading}}" />
+
+<import src="/pages/template/loadend.wxml" />
+<template is="global-loadend" wx:if="{{loadend}}" />

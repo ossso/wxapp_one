@@ -15,34 +15,12 @@
     overflow: hidden;
 }
 
-@mixin QuickFlexBox {
-    -webkit-display: flex;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-flex-direction: row;
-    flex-direction: row;
-    -webkit-justify-content: space-between;
-    justify-content: space-between;
-}
-
-@mixin QuickFlexBoxStart {
-    -webkit-display: flex;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-flex-direction: row;
-    flex-direction: row;
-    -webkit-justify-content: flex-start;
-    justify-content: flex-start;
-}
-
 @mixin prefix($property, $value){
     -webkit-#{$property}: $value;
     #{$property}: $value;
 }
 
-@mixin flexbox {
+@mixin flexBox {
     display: -webkit-flex;
     display: flex;
     @include prefix(flex-wrap,wrap);

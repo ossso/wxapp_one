@@ -1,0 +1,34 @@
+.article-item {
+    padding: 20rpx;
+    border-bottom: 1rpx solid #eee;
+    @include flexBox;
+    .article-multi {
+        width: 480rpx;
+    }
+    .article-title {
+        height: 120rpx;
+        line-height: 40rpx;
+        font-size: 32rpx;
+        color: #222;
+        overflow: hidden;
+    }
+    .article-info {
+        height: 40rpx;
+        line-height: 40rpx;
+        font-size: 24rpx;
+        color: #888;
+        @include flexBox;
+        .author-name {
+            margin-right: 10rpx;
+        }
+    }
+    .thumb {
+        width: 200rpx;
+        height: 160rpx;
+        image {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

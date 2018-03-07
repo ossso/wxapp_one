@@ -1,0 +1,3 @@
+<template name="global-loadend">
+    <view class="global-loadend">已为您加载完所有数据</view>
+</template>

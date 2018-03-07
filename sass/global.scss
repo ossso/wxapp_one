@@ -1,0 +1,39 @@
+// compileExpanded: ../global.wxss
+/**global.wxss**/
+@import "color";
+@import "mixin";
+
+@import "images/loading";
+
+.global-loading-bar {
+    height: 100rpx;
+    padding: 20rpx 0;
+    background: #fff;
+    box-sizing: border-box;
+    @include flexBoxCenter;
+    .icon {
+        width: 30rpx;
+        height: 30rpx;
+        margin: 15rpx 0;
+        margin-right: 10rpx;
+        background: url($loading) 50% 50% no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    .tips {
+        line-height: 60rpx;
+        font-size: 24rpx;
+        color: #888;
+    }
+}
+
+.global-loadend {
+    height: 100rpx;
+    padding: 20rpx 0;
+    line-height: 60rpx;
+    font-size: 24rpx;
+    text-align: center;
+    color: #888;
+    background: #fff;
+    box-sizing: border-box;
+}

@@ -1,0 +1,17 @@
+<template name="article-item">
+    <navigator class="article-item" url="/pages/article/index?id={{ID}}">
+        <view class="article-multi">
+            <view class="article-title">{{Title}}</view>
+            <view class="article-info">
+                <view class="post-date">{{PostDate}}</view>
+                <view>
+                    <text class="author-name">{{Author.StaticName}}</text>
+                    <text class="cate-name">{{Category.Name}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="thumb">
+            <image src="{{Thumb}}" mode="aspectFill" />
+        </view>
+    </navigator>
+</template>

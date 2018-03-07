@@ -1,0 +1,6 @@
+<template name="global-loading-bar">
+    <view class="global-loading-bar">
+        <view class="icon"></view>
+        <view class="tips">正在为您加载中</view>
+    </view>
+</template>

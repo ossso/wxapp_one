@@ -166,9 +166,7 @@ class Login {
      */
     serverCheckSession() {
         return new Promise((resolve, reject) => {
-            api.req('check_session',{
-                sessionid: this.data.sessionid,
-            }, (err, res) => {
+            api.req('check_session', {}, (err, res) => {
                 if (err) {
                     console.log('api.req.checkSession', err)
                     resolve(false)

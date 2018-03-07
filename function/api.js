@@ -2,8 +2,8 @@
  * API处理工具
  */
 
-const config = require('../config')
-const apilist = require('../config/apilist')
+const config = require('../config/index')
+const apilist = require('../config/api-list')
 
 class API {
     constructor() {
@@ -23,20 +23,20 @@ class API {
 
     zbp(type) {
         var url = config.host
-        urlrule = config.urlrule
+        var urlrule = config.urlrule
         if (typeof urlrule !== 'string') urlrule = urlrule.toString()
         switch (urlrule) {
             // 伪静态模式
             case "0":
-                url += "os_wxapi/v1/" + type.toLowercase()
+                url += "os_wxapi/v1/" + type.toLowerCase()
             break
             // 动态模式
             case "1":
-                url += "zb_system/cmd.php?cmd=os_wxapi&v=v1&mode=" + type.toLowercase()
+                url += "zb_system/cmd.php?cmd=os_wxapi&v=v1&mode=" + type.toLowerCase()
             break
             // index.php伪静态模式
             case "2":
-                url += "index.php/os_wxapi/v1/" + type.toLowercase()
+                url += "index.php/os_wxapi/v1/" + type.toLowerCase()
             break
         }
         return url
@@ -52,9 +52,7 @@ class API {
             return this
         }
 
-        let data = {
-            "sessionid": this.sessionid
-        }
+        let data = {}
         let params = apilist[type].params
         params.forEach(item => {
             if (!sendData[item]) {
@@ -72,6 +70,10 @@ class API {
 
         let method = apilist[type].type?apilist[type].type.toUpperCase():"GET"
 
+        if (method == "POST") {
+            data["sessionid"] = this.sessionid || null
+        }
+
         let options = {
             url: url,
             data,
@@ -80,14 +82,14 @@ class API {
             dataType: 'json',
             success: res => {
                 console.log(url, res)
-                if (res.statusCode == 200 && (!res.data.status || res.data.status == 100000)) {
+                if (res.statusCode == 200 && (!res.data.code || res.data.code == 100000)) {
                     cb && cb(null, res.data.result)
                 } else
                 /**
                  * 登录超时处理
                  * 自动跳转至登录页面
                  */
-                if (res.data.status == 200000 && this.appGlobalData) {
+                if (res.data.code == 200000 && this.appGlobalData) {
                     let routes = getCurrentPages()
                     let nowRoute = routes[routes.length - 1]
                     this.appGlobalData.login_cb = function() {
