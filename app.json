@@ -2,17 +2,31 @@
     "pages": [
         "pages/home/index",
         "pages/list/index",
-        "pages/article/index",
-        "pages/page/index",
-        "pages/user/index",
-        "pages/user/bind",
-        "pages/user/login",
-        "pages/search/index"
+        "pages/user/index"
     ],
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
         "navigationBarTitleText": "WeChatApp For ZBP",
         "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#121f2f",
+        "selectedColor": "#3a6ea5",
+        "borderStyle": "white",
+        "list": [
+            {
+                "pagePath": "pages/home/index",
+                "iconPath": "images/icon/home.png",
+                "selectedIconPath": "images/icon/home-fill.png",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/user/index",
+                "iconPath": "images/icon/user.png",
+                "selectedIconPath": "images/icon/user-fill.png",
+                "text": "我的"
+            }
+        ]
     }
 }

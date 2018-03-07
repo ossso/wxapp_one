@@ -1,0 +1,18 @@
+{
+    "pages": [
+        "pages/home/index",
+        "pages/list/index",
+        "pages/article/index",
+        "pages/page/index",
+        "pages/user/index",
+        "pages/user/bind",
+        "pages/user/login",
+        "pages/search/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "WeChatApp For ZBP",
+        "navigationBarTextStyle": "black"
+    }
+}
