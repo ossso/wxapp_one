@@ -11,7 +11,7 @@
             </view>
         </view>
         <view class="thumb">
-            <image src="{{Thumb}}" mode="aspectFill" />
+            <image src="{{Thumb}}" mode="aspectFill" lazy-load="true" />
         </view>
     </navigator>
 </template>

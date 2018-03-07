@@ -23,6 +23,12 @@
                 "text": "首页"
             },
             {
+                "pagePath": "pages/list/index",
+                "iconPath": "images/icon/cate.png",
+                "selectedIconPath": "images/icon/cate-fill.png",
+                "text": "分类"
+            },
+            {
                 "pagePath": "pages/user/index",
                 "iconPath": "images/icon/user.png",
                 "selectedIconPath": "images/icon/user-fill.png",

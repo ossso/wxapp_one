@@ -4,6 +4,7 @@
 @import "../mixin";
 
 @import "../components/article-item";
+@import "../components/article-media";
 
 .swiper-container {
     width: 100%;
@@ -21,8 +22,8 @@
 .search-group {
     position: relative;
     width: 100%;
-    height: 92rpx;
-    padding: 15rpx;
+    height: 102rpx;
+    padding: 20rpx;
     border-top: 1rpx solid #ddd;
     border-bottom: 1rpx solid #ddd;
     background: #eee;
@@ -45,6 +46,20 @@
         width: 40rpx;
         height: 40rpx;
         margin-top: -20rpx;
+    }
+}
+
+.article-media-container {
+    border-left: 1rpx solid #eee;
+    background: #fff;
+    @include flexBox;
+    .article-media-item {
+        width: 50%;
+        height: 301rpx;
+        padding: 20rpx;
+        border-right: 1rpx solid #eee;
+        border-bottom: 1rpx solid #eee;
+        box-sizing: border-box;
     }
 }
 

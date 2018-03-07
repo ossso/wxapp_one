@@ -1,0 +1,13 @@
+<import src="/pages/template/article-item.wxml" />
+<import src="/pages/template/loading.wxml" />
+<import src="/pages/template/loadend.wxml" />
+
+<template name="list-item">
+    <view class="article-list-container" wx:if="{{list}}">
+        <block wx:for="{{list}}" wx:key="{{index}}">
+            <template is="article-item" data="{{...item}}" />
+        </block>
+    </view>
+    <template is="global-loading-bar" wx:if="{{loading}}" />
+    <template is="global-loadend" wx:if="{{loadend}}" />
+</template>

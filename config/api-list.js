@@ -7,6 +7,10 @@ const applist = {
         type: "get",
         params: ["page", "cateid"],
     },
+    catelist: {
+        type: "get",
+        params: [],
+    },
     article: {
         type: "get",
         params: ["id"]

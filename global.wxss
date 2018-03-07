@@ -1,4 +1,14 @@
 /**global.wxss**/
+.title-mode {
+    height: 80rpx;
+    line-height: 80rpx;
+    padding: 0 20rpx;
+    font-size: 32rpx;
+    color: #000;
+    background: #fafafa;
+    border-bottom: 1rpx solid #eee;
+}
+
 .global-loading-bar {
     height: 100rpx;
     padding: 20rpx 0;

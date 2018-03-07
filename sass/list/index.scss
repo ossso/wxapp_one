@@ -1,0 +1,39 @@
+// compileExpanded: ../../pages/list/index.wxss
+/**list/index.wxss**/
+@import "../color";
+@import "../mixin";
+
+@import "../components/article-item";
+
+.tab-title {
+    height: 36px;
+    padding: 0 5px;
+    background: #fff;
+    @include flexBox;
+}
+.tab-title-item {
+    position: relative;
+    height: 36px;
+    padding: 0 2.5px;
+    line-height: 36px;
+    font-size: 15px;
+    color: $blackColor;
+    &:last-child {
+        margin-right: 0;
+    }
+    &.active {
+        color: $zbpColor;
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border-bottom: 3px solid $zbpColor;
+        }
+    }
+}
+
+.article-list-container {
+    background: #fff;
+}

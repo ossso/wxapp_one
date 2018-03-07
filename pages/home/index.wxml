@@ -14,7 +14,16 @@
     <image class="search-icon" src="../../images/icon/search-icon.svg" mode="aspectFill" />
 </view>
 
+<import src="/pages/template/article-media.wxml" />
+<view class="title-mode">推荐阅读</view>
+<view class="article-media-container" wx:if="{{medias && medias.length}}">
+    <view class="article-media-item" wx:for="{{medias}}" wx:key="{{index}}">
+        <template is="article-media" data="{{...item}}" />
+    </view>
+</view>
+
 <import src="/pages/template/article-item.wxml" />
+<view class="title-mode">最新发布</view>
 <view class="article-list-container">
     <block wx:for="{{list}}" wx:key="{{index}}">
         <template is="article-item" data="{{...item}}" />

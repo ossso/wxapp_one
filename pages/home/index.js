@@ -16,6 +16,7 @@ Page({
         loading: false,
         loadend: false,
         list: [],
+        medias: [],
     },
     onLoad() {
         wx.setNavigationBarTitle({
@@ -39,7 +40,7 @@ Page({
      */
     onReachBottom() {
         if (!this.data.pagenext) return this
-        if (this.data.pagenext == this.data.pages) return this
+        if (this.data.page == this.data.pages) return this
         this.loadData(this.data.pagenext)
     },
     /**
@@ -66,8 +67,18 @@ Page({
                     page: res.page,
                     pages: res.pages,
                     pagenext: res.pagenext,
-                    loadend: res.page == res.pages
+                    loadend: res.page >= res.pages
                 })
+
+                if (page == 1) {
+                    this.setData({
+                        medias: (() => {
+                            var len = res.medias.length
+                            if (len%2 == 1) len = len - 1
+                            return res.medias.slice(0, len)
+                        })()
+                    })
+                }
             }
             this.setData({
                 loading: false

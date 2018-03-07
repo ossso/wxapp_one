@@ -1,0 +1,30 @@
+.article-media {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    .thumb {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        image {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .article-title {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 60rpx;
+        line-height: 60rpx;
+        padding: 0 15rpx;
+        font-size: 24rpx;
+        color: #fff;
+        background: rgba(0, 0, 0, .85);
+        box-sizing: border-box;
+        @include textHidden;
+    }
+}
