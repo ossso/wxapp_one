@@ -36,9 +36,25 @@
     overflow: hidden;
 }
 
-.comment-item {
+.comment-post-group {
     padding: 20rpx;
     border-bottom: 1rpx solid #eee;
+    background: #fff;
+}
+
+.comment-post-group .comment-post-textarea {
+    width: 100%;
+    min-height: 200rpx;
+    padding: 20rpx;
+    line-height: 40rpx;
+    font-size: 28rpx;
+    border-radius: 4rpx;
+    background: #f5f5f5;
+    box-sizing: border-box;
+}
+
+.comment-post-group .comment-btns-group {
+    margin: 20rpx 0 0;
     box-sizing: border-box;
     display: -webkit-flex;
     display: flex;
@@ -50,11 +66,47 @@
     justify-content: space-between;
 }
 
-.comment-item .avatar {
+.comment-post-group .cancel-btn {
+    display: block;
+    width: 150rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    margin: 10rpx 0;
+    padding: 0;
+    color: #888;
+    border-radius: 4rpx;
+    background: transparent;
+    box-sizing: border-box;
+}
+
+.comment-post-group .submit-btn {
+    display: block;
+    width: 240rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin: 0;
+    padding: 0;
+    font-size: 32rpx;
+    color: #fff;
+    border-radius: 4rpx;
+    background: #3a6ea5;
+    box-sizing: border-box;
+}
+
+.comment-item {
     position: relative;
-    width: 128rpx;
+    padding: 20rpx;
+    padding-left: 136rpx;
+    border-bottom: 1rpx solid #eee;
+    box-sizing: border-box;
+}
+
+.comment-item .avatar {
+    position: absolute;
+    top: 20rpx;
+    left: 20rpx;
+    width: 96rpx;
     height: 96rpx;
-    padding-right: 36rpx;
     box-sizing: border-box;
 }
 
@@ -69,13 +121,9 @@
     display: block;
     position: absolute;
     top: 60rpx;
-    right: 24rpx;
+    right: 12rpx;
     width: 36rpx;
     height: 36rpx;
-}
-
-.comment-item .comment-main {
-    flex: 1;
 }
 
 .comment-item .comment-info {
@@ -131,6 +179,19 @@
 .comment-item .comment-parent-content .parent-author-name {
     margin-right: 8rpx;
     color: #3a6ea5;
+}
+
+.comment-item .comment-post-group {
+    padding: 20rpx 0 0;
+    border-bottom: none;
+}
+
+.comment-item .little-tail {
+    height: 30rpx;
+    line-height: 30rpx;
+    font-size: 24rpx;
+    text-align: right;
+    color: #aaa;
 }
 
 .article-page {
@@ -197,5 +258,15 @@
 }
 
 .comment-container {
+    background: #fff;
+}
+
+.login-tips {
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: 28rpx;
+    text-align: center;
+    color: #333;
+    border-bottom: 1rpx solid #eee;
     background: #fff;
 }

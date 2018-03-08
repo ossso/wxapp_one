@@ -4,6 +4,7 @@
 @import "../mixin";
 
 @import "../components/article-media";
+@import "../components/comment-post";
 @import "../components/comment-item";
 
 .article-page {
@@ -53,5 +54,15 @@
 }
 
 .comment-container {
+    background: #fff;
+}
+
+.login-tips {
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: 28rpx;
+    text-align: center;
+    color: #333;
+    border-bottom: 1rpx solid #eee;
     background: #fff;
 }

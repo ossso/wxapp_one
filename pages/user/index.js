@@ -5,7 +5,7 @@ Page({
     data: {
         name: config.name
     },
-    onLoad() {
+    onShow() {
         this.loadInfo()
     },
     /**
@@ -66,13 +66,8 @@ Page({
                 if (err) {
                     app.msg(err.msg)
                 } else {
-                    wx.showToast({
-                        title: "已解除绑定",
-                        icon: 'none'
-                    })
-                    var userinfo = {...this.data.userinfo}
-                    userinfo.ID = 0
-                    this.setData({ userinfo })
+                    app.msg("已解除绑定")
+                    this.loadData()
                 }
             })
         }

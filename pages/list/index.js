@@ -49,6 +49,21 @@ Page({
         this.loadList(info.pagenext, info.cateid)
         return this
     },
+    onShareAppMessage() {
+        if (!info) {
+            return false
+        }
+        var title = "分类阅读中心 - " + config.name
+        if (config.share && config.share.cates) {
+            title = config.share.cates
+            title = title.replace(/\{%title%\}/g, "分类阅读")
+            title = title.replace(/\{%name%\}/g, config.name)
+        }
+        return {
+            title,
+            path: '/pages/list/index'
+        }
+    },
     /**
      * swiper切换反馈
      */
@@ -58,7 +73,6 @@ Page({
                 swiperIndex: e.detail.current
             })
         }
-
         this.getNowCateInfo()
     },
     /**

@@ -1,13 +1,15 @@
 .comment-item {
+    position: relative;
     padding: 20rpx;
+    padding-left: 136rpx;
     border-bottom: 1rpx solid #eee;
     box-sizing: border-box;
-    @include flexBox;
     .avatar {
-        position: relative;
-        width: 128rpx;
+        position: absolute;
+        top: 20rpx;
+        left: 20rpx;
+        width: 96rpx;
         height: 96rpx;
-        padding-right: 36rpx;
         box-sizing: border-box;
         image.pics {
             display: block;
@@ -19,13 +21,10 @@
             display: block;
             position: absolute;
             top: 60rpx;
-            right: 24rpx;
+            right: 12rpx;
             width: 36rpx;
             height: 36rpx;
         }
-    }
-    .comment-main {
-        flex: 1;
     }
 
     .comment-info {
@@ -65,5 +64,16 @@
             margin-right: 8rpx;
             color: $zbpColor;
         }
+    }
+    .comment-post-group {
+        padding: 20rpx 0 0;
+        border-bottom: none;
+    }
+    .little-tail {
+        height: 30rpx;
+        line-height: 30rpx;
+        font-size: 24rpx;
+        text-align: right;
+        color: #aaa;
     }
 }

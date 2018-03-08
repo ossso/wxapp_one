@@ -1,0 +1,45 @@
+.comment-post-group {
+    padding: 20rpx;
+    border-bottom: 1rpx solid #eee;
+    background: #fff;
+    .comment-post-textarea {
+        width: 100%;
+        min-height: 200rpx;
+        padding: 20rpx;
+        line-height: 40rpx;
+        font-size: 28rpx;
+        border-radius: 4rpx;
+        background: #f5f5f5;
+        box-sizing: border-box;
+    }
+    .comment-btns-group {
+        margin: 20rpx 0 0;
+        box-sizing: border-box;
+        @include flexBox;
+    }
+    .cancel-btn {
+        display: block;
+        width: 150rpx;
+        height: 60rpx;
+        line-height: 60rpx;
+        margin: 10rpx 0;
+        padding: 0;
+        color: #888;
+        border-radius: 4rpx;
+        background: transparent;
+        box-sizing: border-box;
+    }
+    .submit-btn {
+        display: block;
+        width: 240rpx;
+        height: 80rpx;
+        line-height: 80rpx;
+        margin: 0;
+        padding: 0;
+        font-size: 32rpx;
+        color: #fff;
+        border-radius: 4rpx;
+        background: $zbpColor;
+        box-sizing: border-box;
+    }
+}

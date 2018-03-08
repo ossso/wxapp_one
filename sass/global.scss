@@ -4,6 +4,7 @@
 @import "mixin";
 
 .title-mode {
+    position: relative;
     height: 80rpx;
     line-height: 80rpx;
     padding: 0 20rpx;
@@ -11,6 +12,20 @@
     color: #000;
     background: #fafafa;
     border-bottom: 1rpx solid #eee;
+    .right-icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 80rpx;
+        height: 80rpx;
+        cursor: pointer;
+        image {
+            display: block;
+            width: 40rpx;
+            height: 40rpx;
+            margin: 20rpx;
+        }
+    }
 }
 
 @import "images/loading";

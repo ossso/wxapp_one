@@ -33,15 +33,15 @@ class Login {
      */
     login(cb) {
         ;(async () => {
-            let userinfo = await this.getWXUserInfo()
-            if (!userinfo) {
-                cb({code: 200000, msg: "未能正常获取用户的微信资料"})
+            let wxLogin = await this.wxLogin()
+            if (!wxLogin) {
+                cb({code: 200000, msg: "微信登录失败"})
                 return
             }
 
-            let wxLogin = await this.wxLogin()
-            if (!wxLogin) {
-                cb({code: 200001, msg: "微信登录失败"})
+            let userinfo = await this.getWXUserInfo()
+            if (!userinfo) {
+                cb({code: 200001, msg: "未能正常获取用户的微信资料"})
                 return
             }
 

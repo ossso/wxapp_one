@@ -21,7 +21,14 @@
     </view>
 </view>
 <import src="/pages/template/comment-item.wxml" />
-<view class="title-mode">留言评论</view>
+<import src="/pages/template/comment-post.wxml" />
+<view class="title-mode" wx:if="{{info}}">留言评论 <view bindtap="refreshCommentList" class="right-icon"><image src="../../images/icon/refresh.svg"  mode="aspectFill" /></view></view>
+<block wx:if="{{info && isLogin}}">
+    <template is="comment-post" data="{{content: commentPost}}" />
+</block>
+<block wx:if="{{info && !isLogin}}">
+    <view class="login-tips" bindtap="activeLogin">请您登录后参与评论</view>
+</block>
 <view class="comment-container">
     <block wx:for="{{commentList}}" wx:key="{{index}}">
         <template is="comment-item" data="{{...item}}" />

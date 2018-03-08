@@ -28,7 +28,7 @@ const applist = {
         params: ["page", "keyword"],
     },
     user: {
-        type: "get",
+        type: "post",
         params: []
     },
     login: {

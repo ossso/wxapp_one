@@ -48,6 +48,7 @@ Page({
             password: md5(this.data.password),
         }, (err, res) => {
             wx.hideLoading()
+            this.status.submit = false
             if (err) {
                 app.model(err.msg)
             } else {
@@ -55,6 +56,9 @@ Page({
                     title: "绑定成功",
                     icon: "success",
                     mask: true
+                })
+                wx.removeStorage({
+                    key: "userinfo"
                 })
                 setTimeout(() => {
                     wx.switchTab({

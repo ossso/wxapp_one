@@ -10,7 +10,6 @@ class API {
         this.data = {}
         this.status = {}
         this.system = ["zbp"]
-        this.sessionid = wx.getStorageSync('sessionid')
     }
 
     geturl(type) {
@@ -71,7 +70,7 @@ class API {
         let method = apilist[type].type?apilist[type].type.toUpperCase():"GET"
 
         if (method == "POST") {
-            data["sessionid"] = this.sessionid || null
+            data["sessionid"] = wx.getStorageSync('sessionid') || ""
         }
 
         let options = {
