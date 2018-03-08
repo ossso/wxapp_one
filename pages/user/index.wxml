@@ -1,0 +1,21 @@
+<view class="user-info" wx:if="{{userinfo}}">
+    <view class="avatar">
+        <image src="{{userinfo.Avatar}}" mode="aspectFill" />
+    </view>
+    <view class="nickname">{{userinfo.Nickname}}</view>
+</view>
+<view wx:if="{{!userinfo.ID}}" class="user-bind-status">
+    <text class="tips-info">您未绑定{{name}}网站账户</text>
+    <button class="user-bind-btn bind-btn" bindtap="bindUser">绑定</button>
+</view>
+<view wx:if="{{userinfo.ID}}" class="user-bind-status">
+    <text class="tips-info active">您已绑定{{name}}网站账户</text>
+    <button class="user-bind-btn unbind-btn" bindtap="unBindUser">解除</button>
+</view>
+<view class="user-logout">
+    <button class="logout" bindtap="logout">退出小程序登录</button>
+</view>
+<import src="/pages/template/loading.wxml" />
+<template is="global-loading-bar" wx:if="{{!userinfo}}" />
+<!-- 如果你删了，我就不会为你提供技术支持了 -->
+<view class="copyright">本程序由橙色阳光提供技术支持</view>

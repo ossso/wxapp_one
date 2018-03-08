@@ -1,5 +1,5 @@
 <!--list/index.wxml-->
-<scroll-view scroll-x="true" style="width: 750rpx; height: 40px;">
+<scroll-view scroll-x="true" style="width: 750rpx; height: 36px; background: #fff;">
 <view class="tab-title" style="width: {{titleWidth}}px">
     <block wx:for="{{cates}}" wx:key="{{index}}">
         <view bindtap="swiperSwitch" data-current="{{index}}" class="tab-title-item {{(swiperIndex==index)?'active':''}}">{{item.Name}}</view>

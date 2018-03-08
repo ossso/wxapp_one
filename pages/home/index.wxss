@@ -40,7 +40,7 @@
 }
 
 .article-item .article-info .author-name {
-    margin-right: 10rpx;
+    margin-right: 20rpx;
 }
 
 .article-item .thumb {

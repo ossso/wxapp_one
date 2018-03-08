@@ -9,6 +9,7 @@
     height: 36px;
     padding: 0 5px;
     background: #fff;
+    box-sizing: border-box;
     @include flexBox;
 }
 .tab-title-item {
@@ -18,6 +19,7 @@
     line-height: 36px;
     font-size: 15px;
     color: $blackColor;
+    box-sizing: border-box;
     &:last-child {
         margin-right: 0;
     }

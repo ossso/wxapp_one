@@ -1,7 +1,7 @@
 <template name="article-media">
-    <navigator class="article-media" url="/pages/article/index?id={{ID}}">
+    <navigator open-type="{{OpenType?OpenType:'navigate'}}" class="article-media" url="/pages/article/index?id={{ID}}">
         <view class="thumb">
-            <image src="{{Thumb}}" mode="aspectFill" lazy-load="true" />
+            <image src="{{Thumb}}" mode="aspectFill" lazy-load="{{true}}" />
         </view>
         <view class="article-title">{{Title}}</view>
     </navigator>

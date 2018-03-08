@@ -21,7 +21,7 @@ const applist = {
     },
     comment: {
         type: "get",
-        params: ["id"]
+        params: ["id", "page"]
     },
     search: {
         type: "get",
@@ -38,6 +38,10 @@ const applist = {
     bind: {
         type: "post",
         params: ["username", "password"]
+    },
+    unbind: {
+        type: "post",
+        params: []
     },
     postcomment: {
         type: "post",

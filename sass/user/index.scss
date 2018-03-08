@@ -1,0 +1,76 @@
+// compileExpanded: ../../pages/user/index.wxss
+/**user/index.wxss**/
+@import "../color";
+@import "../mixin";
+
+.user-info {
+    padding: 20rpx;
+    text-align: center;
+    background: #fff;
+    .avatar {
+        display: block;
+        width: 128rpx;
+        height: 128rpx;
+        margin: 0 auto;
+        image {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .nickname {
+        height: 64rpx;
+        line-height: 64rpx;
+        font-size: 32rpx;
+        font-weight: 700;
+        color: $blackColor;
+    }
+}
+
+.user-bind-status {
+    position: relative;
+    width: 710rpx;
+    padding: 40rpx;
+    padding-right: 40rpx+120rpx;
+    margin: 20rpx auto;
+    background: #fff;
+    box-sizing: border-box;
+    .tips-info {
+        display: block;
+        line-height: 30px;
+        font-size: 28rpx;
+        color: #666;
+        &.active {
+            color: #000;
+        }
+    }
+    .user-bind-btn {
+        position: absolute;
+        top: 50%;
+        right: 40rpx;
+        width: 120rpx;
+        height: 60rpx;
+        margin-top: -30rpx;
+        line-height: 60rpx;
+        font-size: 28rpx;
+        color: #fff;
+        border-radius: 4rpx;
+    }
+    .bind-btn {
+        background: $zbpColor;
+    }
+    .unbind-btn {
+        background: #888;
+    }
+}
+
+.user-logout {
+    padding: 0 20rpx;
+    .logout {
+        height: 96rpx;
+        line-height: 96rpx;
+        font-size: 28rpx;
+        color: #888;
+        background: #fff;
+    }
+}

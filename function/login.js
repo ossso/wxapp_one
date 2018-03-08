@@ -63,9 +63,9 @@ class Login {
      * @param {function} cb 回调函数
      */
     check(cb) {
-
-        if (!this.data.thirdsession || !this.data.thirdsession.length) {
-            cb({msg: 'thirdsession不存在'})
+        var sessionid = this.data.sessionid = wx.getStorageSync('sessionid')
+        if (!sessionid) {
+            cb({msg: 'sessionid不存在'})
             return this
         }
 
@@ -75,13 +75,6 @@ class Login {
                 cb({msg: '微信验证登录失效'})
                 return
             }
-
-            let serverCheckSession = this.serverCheckSession()
-            if (!wxCheckSession) {
-                cb({msg: '服务器验证登录失效'})
-                return
-            }
-
             cb(null)
         })()
 
@@ -95,7 +88,10 @@ class Login {
         return new Promise((resolve, reject) => {
             wx.getUserInfo({
                 success: res => {
-                    this.data.userinfo = res.userInfo
+                    this.data.rawData = res.rawData
+                    this.data.signature = res.signature
+                    this.data.encryptedData = res.encryptedData
+                    this.data.iv = res.iv
                     resolve(true)
                 },
                 fail: err => {
@@ -148,39 +144,25 @@ class Login {
     serverLogin() {
         return new Promise((resolve, reject) => {
             api.req('login', {
-                code: this.data.code
+                code: this.data.code,
+                rawData: this.data.rawData,
+                signature: this.data.signature,
+                encryptedData: this.data.encryptedData,
+                iv: this.data.iv,
             }, (err, res) => {
                 if (err) {
                     console.log('api.req.login', err)
                     resolve(false)
                 } else {
-                    this.data.sessionid  = res.sessionid
-                    resolve(true)
-                }
-            })
-        })
-    }
-
-    /**
-     * 远程服务器验证session是否有效
-     */
-    serverCheckSession() {
-        return new Promise((resolve, reject) => {
-            api.req('check_session', {}, (err, res) => {
-                if (err) {
-                    console.log('api.req.checkSession', err)
-                    resolve(false)
-                } else {
-                    resolve(true)
-                    if (res.data.status == '200') {
-                    } else {
-                        resolve(false)
+                    if (res) {
+                        this.data.sessionid  = res.sessionid
+                        this.data.userinfo  = res.userinfo
                     }
+                    resolve(true)
                 }
             })
         })
     }
-
 
     /**
      * 保存用户信息

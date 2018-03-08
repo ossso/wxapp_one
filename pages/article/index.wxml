@@ -1,0 +1,33 @@
+<import src="../../modules/wxParse/wxParse.wxml" />
+
+<view class="article-page" wx:if="{{info}}">
+    <view class="article-title">{{info.Title}}</view>
+    <view class="article-content">
+        <template is="wxParse" data="{{wxParseData: article.nodes}}"/>
+    </view>
+    <view class="article-info">
+        <view class="post-date">{{info.PostDate}}</view>
+        <view>
+            <text class="author-name">{{info.Author.StaticName}}</text>
+            <text class="cate-name">{{info.Category.Name}}</text>
+        </view>
+    </view>
+</view>
+<import src="/pages/template/article-media.wxml" />
+<view class="title-mode" wx:if="{{info && info.RelatedList && info.RelatedList.length}}">相关阅读</view>
+<view class="article-media-container" wx:if="{{info && info.RelatedList && info.RelatedList.length}}">
+    <view class="article-media-item" wx:for="{{info.RelatedList}}" wx:key="{{index}}">
+        <template is="article-media" data="{{...item}}" />
+    </view>
+</view>
+<import src="/pages/template/comment-item.wxml" />
+<view class="title-mode">留言评论</view>
+<view class="comment-container">
+    <block wx:for="{{commentList}}" wx:key="{{index}}">
+        <template is="comment-item" data="{{...item}}" />
+    </block>
+</view>
+<import src="/pages/template/loading.wxml" />
+<template is="global-loading-bar" wx:if="{{loading}}" />
+<import src="/pages/template/loadend.wxml" />
+<template is="global-loadend" wx:if="{{loadend}}" />

@@ -1,0 +1,67 @@
+/**user/bind.wxss**/
+.bind-head {
+    padding: 50rpx;
+    line-height: 100rpx;
+    text-align: center;
+    font-size: 48rpx;
+    font-weight: 700;
+    color: #121f2f;
+    background: #fff;
+    border-bottom: 1rpx solid #eee;
+}
+
+.bind-form {
+    width: 710rpx;
+    padding: 50rpx;
+    margin: 20rpx auto;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.bind-form .bind-form-item {
+    position: relative;
+    height: 80rpx;
+    margin-bottom: 30rpx;
+    padding-left: 100rpx;
+    box-sizing: border-box;
+}
+
+.bind-form .bind-form-item label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100rpx;
+    height: 80rpx;
+    padding-right: 30rpx;
+    line-height: 80rpx;
+    font-size: 28rpx;
+    text-align: right;
+    box-sizing: border-box;
+}
+
+.bind-form .bind-form-item .bind-form-input {
+    height: 80rpx;
+    padding: 14rpx 20rpx;
+    line-height: 50rpx;
+    font-size: 28rpx;
+    border: 1rpx solid #ddd;
+    border-radius: 4rpx;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+}
+
+.bind-form .bind-form-item .bind-form-input:hover {
+    border-color: #aaa;
+}
+
+.bind-form .submit-btn {
+    width: 320rpx;
+    height: 80rpx;
+    margin: 50rpx auto 0;
+    line-height: 80rpx;
+    font-size: 32rpx;
+    color: #fff;
+    background: #3a6ea5;
+}

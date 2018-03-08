@@ -1,0 +1,32 @@
+/**user/bind.wxss**/
+page {
+    background: #fff;
+}
+
+.login-hub {
+    padding: 20rpx;
+}
+
+.login-hub-info {
+    padding: 20rpx;
+}
+
+.login-hub-info .info-title {
+    line-height: 80rpx;
+    font-size: 36rpx;
+    color: #000;
+}
+
+.login-hub-info .info-desc {
+    line-height: 1.6;
+    font-size: 28rpx;
+    color: #555;
+}
+
+.login-hub-btn {
+    padding: 20rpx;
+}
+
+.login-hub-btn .confrim-login {
+    margin-bottom: 40rpx;
+}

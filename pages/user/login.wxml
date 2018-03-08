@@ -1,0 +1,15 @@
+<view class="login-hub">
+    <view class="login-hub-head">
+        <view class="icon-box" style="text-align: center;">
+            <icon type="warn" size="93" color="#FFBE00"></icon>
+        </view>
+    </view>
+    <view class="login-hub-info">
+        <view class="info-title">您需要授权登录</view>
+        <view class="info-desc">由于您没有授权获取登录信息，或您的登录状态已过期，导致您无法继续进行操作，需要您重新授权。</view>
+    </view>
+    <view class="login-hub-btn">
+        <button type="primary" class="confrim-login" bindtap="activLogin">重新授权</button>
+        <button type="default" class="cancel-login" bindtap="goToHome">回到首页</button>
+    </view>
+</view>

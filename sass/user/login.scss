@@ -1,0 +1,33 @@
+// compileExpanded: ../../pages/user/login.wxss
+/**user/bind.wxss**/
+@import "../color";
+@import "../mixin";
+
+page {
+    background: #fff;
+}
+
+.login-hub {
+    padding: 20rpx;
+}
+
+.login-hub-info {
+    padding: 20rpx;
+    .info-title {
+        line-height: 80rpx;
+        font-size: 36rpx;
+        color: #000;
+    }
+    .info-desc {
+        line-height: 1.6;
+        font-size: 28rpx;
+        color: #555;
+    }
+}
+
+.login-hub-btn {
+    padding: 20rpx;
+    .confrim-login {
+        margin-bottom: 40rpx;
+    }
+}

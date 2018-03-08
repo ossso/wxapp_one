@@ -1,0 +1,69 @@
+.comment-item {
+    padding: 20rpx;
+    border-bottom: 1rpx solid #eee;
+    box-sizing: border-box;
+    @include flexBox;
+    .avatar {
+        position: relative;
+        width: 128rpx;
+        height: 96rpx;
+        padding-right: 36rpx;
+        box-sizing: border-box;
+        image.pics {
+            display: block;
+            width: 96rpx;
+            height: 96rpx;
+            border-radius: 50%;
+        }
+        image.v {
+            display: block;
+            position: absolute;
+            top: 60rpx;
+            right: 24rpx;
+            width: 36rpx;
+            height: 36rpx;
+        }
+    }
+    .comment-main {
+        flex: 1;
+    }
+
+    .comment-info {
+        height: 40rpx;
+        line-height: 40rpx;
+        margin-bottom: 10rpx;
+        box-sizing: border-box;
+        @include flexBox;
+        .author-name {
+            font-size: 32rpx;
+            color: #000;
+            @include textHidden;
+            width: 32rpx*8;
+            &.level-1 {
+                color: #f7b514;
+            }
+        }
+        .post-date {
+            font-size: 24rpx;
+            color: #888;
+        }
+    }
+    .comment-content {
+        line-height: 1.4;
+        font-size: 28rpx;
+        color: #333;
+        box-sizing: border-box;
+    }
+    .comment-parent-content {
+        padding: 15rpx;
+        line-height: 1.2;
+        font-size: 24rpx;
+        color: #888;
+        background: #f5f5f5;
+        box-sizing: border-box;
+        .parent-author-name {
+            margin-right: 8rpx;
+            color: $zbpColor;
+        }
+    }
+}

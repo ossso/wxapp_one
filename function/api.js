@@ -82,45 +82,52 @@ class API {
             dataType: 'json',
             success: res => {
                 console.log(url, res)
-                if (res.statusCode == 200 && (!res.data.code || res.data.code == 100000)) {
-                    cb && cb(null, res.data.result)
-                } else
-                /**
-                 * 登录超时处理
-                 * 自动跳转至登录页面
-                 */
-                if (res.data.code == 200000 && this.appGlobalData) {
-                    let routes = getCurrentPages()
-                    let nowRoute = routes[routes.length - 1]
-                    this.appGlobalData.login_cb = function() {
-                        // 判断返回的路由路径
-                        if (nowRoute.route == 'pages/user/index' || nowRoute.route == 'pages/home/index') {
-                            wx.switchTab({
-                                url: '/'+nowRoute.route
-                            })
-                        } else {
-                            let param = []
-                            for (let i in nowRoute.options) {
-                                param.push(i+'='+nowRoute.options[i])
+                if (res.statusCode == 200) {
+                    if (res.data.code && res.data.code == 100000) {
+                        cb && cb(null, res.data.result)
+                    } else
+                    /**
+                     * 登录超时处理
+                     * 自动跳转至登录页面
+                     */
+                    if (res.data.code == 200000 && this.appGlobalData) {
+                        let routes = getCurrentPages()
+                        let nowRoute = routes[routes.length - 1]
+                        this.appGlobalData.login_cb = function() {
+                            // 判断返回的路由路径
+                            if (nowRoute.route == 'pages/user/index' || nowRoute.route == 'pages/home/index') {
+                                wx.switchTab({
+                                    url: '/'+nowRoute.route
+                                })
+                            } else {
+                                let param = []
+                                for (let i in nowRoute.options) {
+                                    param.push(i+'='+nowRoute.options[i])
+                                }
+                                wx.redirectTo({
+                                    url: '/'+nowRoute.route + param.length?('?'+param.join('&')):''
+                                })
                             }
-                            wx.redirectTo({
-                                url: '/'+nowRoute.route + param.length?('?'+param.join('&')):''
-                            })
                         }
+                        wx.redirectTo({
+                            url: '/pages/user/login'
+                        })
+                    } else {
+                        cb && cb({
+                            code: res.data.code,
+                            msg: res.data.message
+                        })
                     }
-                    wx.redirectTo({
-                        url: '/pages/user/login'
-                    })
                 } else {
                     cb && cb({
-                        code: res.data.status,
-                        msg: res.data.message
+                        code: "000000",
+                        msg: "异常网络"
                     })
                 }
             },
             fail() {
-                cb && cb.fail({
-                    code: "000000",
+                cb && cb({
+                    code: "000001",
                     msg: "异常网络"
                 })
             }

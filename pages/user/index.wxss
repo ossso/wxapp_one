@@ -1,0 +1,81 @@
+/**user/index.wxss**/
+.user-info {
+    padding: 20rpx;
+    text-align: center;
+    background: #fff;
+}
+
+.user-info .avatar {
+    display: block;
+    width: 128rpx;
+    height: 128rpx;
+    margin: 0 auto;
+}
+
+.user-info .avatar image {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.user-info .nickname {
+    height: 64rpx;
+    line-height: 64rpx;
+    font-size: 32rpx;
+    font-weight: 700;
+    color: #121f2f;
+}
+
+.user-bind-status {
+    position: relative;
+    width: 710rpx;
+    padding: 40rpx;
+    padding-right: 160rpx;
+    margin: 20rpx auto;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.user-bind-status .tips-info {
+    display: block;
+    line-height: 30px;
+    font-size: 28rpx;
+    color: #666;
+}
+
+.user-bind-status .tips-info.active {
+    color: #000;
+}
+
+.user-bind-status .user-bind-btn {
+    position: absolute;
+    top: 50%;
+    right: 40rpx;
+    width: 120rpx;
+    height: 60rpx;
+    margin-top: -30rpx;
+    line-height: 60rpx;
+    font-size: 28rpx;
+    color: #fff;
+    border-radius: 4rpx;
+}
+
+.user-bind-status .bind-btn {
+    background: #3a6ea5;
+}
+
+.user-bind-status .unbind-btn {
+    background: #888;
+}
+
+.user-logout {
+    padding: 0 20rpx;
+}
+
+.user-logout .logout {
+    height: 96rpx;
+    line-height: 96rpx;
+    font-size: 28rpx;
+    color: #888;
+    background: #fff;
+}

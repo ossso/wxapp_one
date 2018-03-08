@@ -16,7 +16,8 @@ Page({
     },
     onLoad() {
         var cates = wx.getStorageSync("cates")
-        if (cates) {
+        var cates_times = wx.getStorageSync("cates_times")
+        if (cates && cates_times && (new Date).getTime() - cates_times < 2 * 60 * 60 * 1000) {
             var titleWidth = 0
             cates.map(item => {
                 item.info = this.getCateInfo(null, item.ID)
@@ -25,10 +26,6 @@ Page({
             if (cates.length) titleWidth -= 6
             this.setData({cates, titleWidth})
             this.getNowCateInfo(true)
-            var cates_times = wx.getStorageSync("cates_times")
-            if (!cates_times || (new Date).getTime() - cates_times > 2 * 60 * 60 * 1000) {
-                this.loadCate()
-            }
         } else {
             this.loadCate()
         }

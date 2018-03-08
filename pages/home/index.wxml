@@ -9,13 +9,13 @@
     </swiper>
 </view>
 
-<view class="search-group">
+<navigator url="/pages/search/index" class="search-group">
     <view class="search-input">搜索</view>
     <image class="search-icon" src="../../images/icon/search-icon.svg" mode="aspectFill" />
-</view>
+</navigator>
 
 <import src="/pages/template/article-media.wxml" />
-<view class="title-mode">推荐阅读</view>
+<view class="title-mode" wx:if="{{medias && medias.length}}">推荐阅读</view>
 <view class="article-media-container" wx:if="{{medias && medias.length}}">
     <view class="article-media-item" wx:for="{{medias}}" wx:key="{{index}}">
         <template is="article-media" data="{{...item}}" />

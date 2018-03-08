@@ -1,0 +1,22 @@
+<view class="search-header">
+    <view class="search-bar">
+        <input type="text" class="search-input" placeholder="搜索" value="{{word}}" confirm-type="search" bindchange="changeword" bindconfirm="submit" focus="{{!word.length}}" />
+        <image bindtap="submit" class="search-icon" src="../../images/icon/search-icon.svg" mode="aspectFill" />
+    </view>
+    <view class="search-tips" wx:if="{{search && word}}">正在搜索“{{word}}”</view>
+</view>
+
+<view class="search-null" wx:if="{{search && !list.length}}">没有找到与“{{word}}”相关文章</view>
+
+<import src="/pages/template/article-item.wxml" />
+<view class="article-list-container">
+    <block wx:for="{{list}}" wx:key="{{index}}">
+        <template is="article-item" data="{{...item}}" />
+    </block>
+</view>
+
+<import src="/pages/template/loading.wxml" />
+<template is="global-loading-bar" wx:if="{{loading}}" />
+
+<import src="/pages/template/loadend.wxml" />
+<template is="global-loadend" wx:if="{{loadend && list.length}}" />

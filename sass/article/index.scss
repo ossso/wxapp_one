@@ -1,0 +1,57 @@
+// compileExpanded: ../../pages/article/index.other.wxss
+/**index.wxss**/
+@import "../color";
+@import "../mixin";
+
+@import "../components/article-media";
+@import "../components/comment-item";
+
+.article-page {
+    padding: 0 30rpx;
+    background: #fff;
+}
+
+.article-title {
+    padding: 30rpx 0;
+    font-size: 40rpx;
+    color: #000;
+}
+
+.article-content {
+    line-height: 1.8;
+    font-size: 28rpx;
+    color: #555;
+    .wxParse-pre {
+        padding: 10rpx;
+        background: #f5f5f5;
+    }
+}
+
+.article-info {
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 24rpx;
+    color: #888;
+    @include flexBox;
+    .author-name {
+        margin-right: 20rpx;
+    }
+}
+
+.article-media-container {
+    border-left: 1rpx solid #eee;
+    background: #fff;
+    @include flexBox;
+    .article-media-item {
+        width: 50%;
+        height: 301rpx;
+        padding: 20rpx;
+        border-right: 1rpx solid #eee;
+        border-bottom: 1rpx solid #eee;
+        box-sizing: border-box;
+    }
+}
+
+.comment-container {
+    background: #fff;
+}

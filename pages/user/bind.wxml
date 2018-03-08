@@ -1,0 +1,12 @@
+<view class="bind-head">绑定{{name}}账户</view>
+<view class="bind-form">
+    <view class="bind-form-item">
+        <label for="username">账号</label>
+        <input type="text" class="bind-form-input" id="username" data-name="username" bindinput="bindInputChange" />
+    </view>
+    <view class="bind-form-item">
+        <label for="username">密码</label>
+        <input type="password" password="true" class="bind-form-input" id="password" data-name="password" bindinput="bindInputChange" />
+    </view>
+    <button class="submit-btn" bindtap="submit">提交</button>
+</view>

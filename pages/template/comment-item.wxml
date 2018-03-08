@@ -1,0 +1,16 @@
+<template name="comment-item">
+    <view class="comment-item">
+        <view class="avatar">
+            <image class="pics" src="{{Author.Avatar}}" mode="aspectFill" lazy-load="{{true}}" />
+            <image class="v" src="../../images/icon/v.svg" mode="aspectFill" wx:if="{{Author.Level < 4}}" />
+        </view>
+        <view class="comment-main">
+            <view class="comment-info">
+                <view class="author-name level-{{Author.Level}}">{{Author.StaticName}}</view>
+                <view class="post-date">{{PostDate}}</view>
+            </view>
+            <view class="comment-parent-content" wx:if="{{ParentID > 0}}"><text class="parent-author-name">@{{Parents.Author.StaticName}}</text>{{Parents.Content}}</view>
+            <view class="comment-content">{{Content}}</view>
+        </view>
+    </view>
+</template>

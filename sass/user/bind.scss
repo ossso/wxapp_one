@@ -1,0 +1,66 @@
+// compileExpanded: ../../pages/user/bind.wxss
+/**user/bind.wxss**/
+@import "../color";
+@import "../mixin";
+
+.bind-head {
+    padding: 50rpx;
+    line-height: 100rpx;
+    text-align: center;
+    font-size: 48rpx;
+    font-weight: 700;
+    color: $blackColor;
+    background: #fff;
+    border-bottom: 1rpx solid #eee;
+}
+
+.bind-form {
+    width: 710rpx;
+    padding: 50rpx;
+    margin: 20rpx auto;
+    background: #fff;
+    box-sizing: border-box;
+    .bind-form-item {
+        position: relative;
+        height: 80rpx;
+        margin-bottom: 30rpx;
+        padding-left: 100rpx;
+        box-sizing: border-box;
+        label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100rpx;
+            height: 80rpx;
+            padding-right: 30rpx;
+            line-height: 80rpx;
+            font-size: 28rpx;
+            text-align: right;
+            box-sizing: border-box;
+        }
+        .bind-form-input {
+            height: 80rpx;
+            padding: 14rpx 20rpx;
+            line-height: 50rpx;
+            font-size: 28rpx;
+            border: 1rpx solid #ddd;
+            border-radius: 4rpx;
+            color: #333;
+            box-sizing: border-box;
+            @include transition;
+            &:hover {
+                border-color: #aaa;
+            }
+        }
+    }
+
+    .submit-btn {
+        width: 320rpx;
+        height: 80rpx;
+        margin: 50rpx auto 0;
+        line-height: 80rpx;
+        font-size: 32rpx;
+        color: #fff;
+        background: $zbpColor;
+    }
+}
