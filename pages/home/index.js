@@ -107,6 +107,13 @@ Page({
                         pagenext: this.data.pagenext,
                         loadend: this.data.loadend
                     }
+                    // 判断是否有swiper
+                    if (res.swiper) {
+                        this.setData({
+                            swiper: res.swiper
+                        })
+                        info.swiper = res.swiper
+                    }
                     wx.setStorage({
                         key: "home_cache",
                         data: info

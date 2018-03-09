@@ -26,6 +26,25 @@
     margin: 20rpx;
 }
 
+.fixed-icon {
+    position: fixed;
+    left: 10rpx;
+    bottom: 10rpx;
+    width: 80rpx;
+    height: 80rpx;
+    padding: 15rpx;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.75);
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.fixed-icon image {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
 .global-loading-bar {
     height: 100rpx;
     padding: 20rpx 0;

@@ -8,26 +8,24 @@ const utils = require("../../utils/util")
 Page({
     data: {
         info: false,
+        fail: false,
         art_loading: false,
         commentList: [],
         loading: false,
         loadend: false,
         commentPost: "",
-        isLogin: false,
+        isLogin: app.globalData.isLogin
     },
     status: {},
     onLoad(options) {
-        if (app.globalData.isLogin) {
-            this.setData({isLogin: true})
-        }
-        this.loadArticle(options.id)
+        this.loadPage(options.id)
         this.setData({id: options.id})
     },
     /**
      * 下拉刷新
      */
     onPullDownRefresh() {
-        this.loadArticle(this.data.id, () => {
+        this.loadPage(this.data.id,() => {
             app.msg("刷新成功")
             wx.stopPullDownRefresh()
         })
@@ -45,25 +43,28 @@ Page({
             return false
         }
         var title = info.Title
-        if (config.share && config.share.article) {
-            title = config.share.article
+        if (config.share && config.share.page) {
+            title = config.share.page
             title = title.replace(/\{%title%\}/g, info.Title)
             title = title.replace(/\{%catename%\}/g, info.Category.Name)
             title = title.replace(/\{%name%\}/g, config.name)
         }
         return {
             title,
-            path: '/pages/article/index?id='+info.ID
+            path: '/pages/page/index?id='+info.ID
         }
     },
     /**
      * 加载文章
      */
-    loadArticle(id, cb) {
-        app.libs.api.req('article', { id },
+    loadPage(id, cb) {
+        app.libs.api.req('page', { id },
         (err, res) => {
             if (err) {
                 app.model(err.msg)
+                this.setData({
+                    fail: true
+                })
             } else {
                 this.hanlderInfo(res)
                 this.setData({
@@ -121,18 +122,9 @@ Page({
      * 转换数据
      */
     hanlderInfo(info) {
-        info.PostDate = (function() {
-            var date = new Date()
-            date.setTime(parseInt(info.PostTime)*1000)
-            return utils.formatDate(date)
-        })()
-        info.RelatedList.map(item => {
-            item.OpenType = "redirect"
-        })
         // 转换富文本信息
         WxParse.wxParse('article', 'html', info.Content, this, 5)
         delete info.Content
-        delete info.Intro
     },
     /**
      * 处理评论内容

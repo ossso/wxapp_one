@@ -21,9 +21,9 @@ Page({
             var titleWidth = 0
             cates.map(item => {
                 item.info = this.getCateInfo(null, item.ID)
-                titleWidth += item.Name.length * 15 + 6
+                titleWidth += item.Name.length * 15 + 5 + 10
             })
-            if (cates.length) titleWidth -= 6
+            if (cates.length) titleWidth -= 10
             this.setData({cates, titleWidth})
             this.getNowCateInfo(true)
         } else {
@@ -31,9 +31,10 @@ Page({
         }
     },
     /**
-     * 下拉刷新
+     * 激活刷新
      */
-    onPullDownRefresh() {
+    activeRefresh() {
+        wx.startPullDownRefresh()
         this.loadCate(() => {
             app.msg("刷新成功")
             wx.stopPullDownRefresh()
@@ -135,10 +136,10 @@ Page({
                 // 准备数据渲染
                 var titleWidth = 0
                 cates.map(item => {
+                    titleWidth += item.Name.length * 15 + 5 + 10
                     item.info = this.getCateInfo(null, item.ID)
-                    titleWidth += item.Name.length * 15 + 6
                 })
-                if (cates.length) titleWidth -= 6
+                if (cates.length) titleWidth -= 10
                 this.setData({
                     cates,
                     titleWidth

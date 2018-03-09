@@ -16,3 +16,4 @@
         </swiper-item>
     </block>
 </swiper>
+<view class="fixed-icon" bindtap="activeRefresh"><image src="../../images/icon/refresh.svg" mode="aspectFill" /></view>

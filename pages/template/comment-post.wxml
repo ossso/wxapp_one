@@ -2,11 +2,11 @@
     <view class="comment-post-group">
         <form bindsubmit="commentPostSubmit">
             <block wx:if="{{replyid}}">
-                <input style="display: none" value="{{replyid}}" />
+                <input style="display: none" name="replyid" value="{{replyid}}" />
                 <textarea class="comment-post-textarea" name="content" auto-height maxlength="200" />
             </block>
             <block wx:else>
-                <input style="display: none" value="0" />
+                <input style="display: none" name="replyid" value="0" />
                 <textarea class="comment-post-textarea" name="content" bindchange="commentPostChange" auto-height value="{{content}}" maxlength="200" />
             </block>
             <view class="comment-btns-group">

@@ -103,9 +103,11 @@ class API {
                                 for (let i in nowRoute.options) {
                                     param.push(i+'='+nowRoute.options[i])
                                 }
-                                wx.redirectTo({
-                                    url: '/'+nowRoute.route + param.length?('?'+param.join('&')):''
-                                })
+                                var url = '/'+nowRoute.route
+                                if (param.length) {
+                                    url += '?'+param.join('&')
+                                }
+                                wx.redirectTo({url})
                             }
                         }
                         wx.redirectTo({

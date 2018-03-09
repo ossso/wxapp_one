@@ -1,0 +1,26 @@
+<import src="../../modules/wxParse/wxParse.wxml" />
+
+<view class="article-page" wx:if="{{info}}">
+    <view class="article-title">{{info.Title}}</view>
+    <view class="article-content">
+        <template is="wxParse" data="{{wxParseData: article.nodes}}"/>
+    </view>
+</view>
+<import src="/pages/template/comment-item.wxml" />
+<import src="/pages/template/comment-post.wxml" />
+<view class="title-mode" wx:if="{{info && (commentList.length || !info.IsLock)}}">留言评论 <view bindtap="refreshCommentList" class="right-icon"><image src="../../images/icon/refresh.svg"  mode="aspectFill" /></view></view>
+<block wx:if="{{info && isLogin && !info.IsLock}}">
+    <template is="comment-post" data="{{content: commentPost}}" />
+</block>
+<block wx:if="{{info && !isLogin && !info.IsLock}}">
+    <view class="login-tips" bindtap="activeLogin">请您登录后参与评论</view>
+</block>
+<view class="comment-container">
+    <block wx:for="{{commentList}}" wx:key="{{index}}">
+        <template is="comment-item" data="{{...item, PostIsLock: info.IsLock}}" />
+    </block>
+</view>
+<import src="/pages/template/loading.wxml" />
+<template is="global-loading-bar" wx:if="{{loading && (commentList.length || !info.IsLock)}}" />
+<import src="/pages/template/loadend.wxml" />
+<template is="global-loadend" wx:if="{{loadend && (commentList.length || !info.IsLock)}}" />
