@@ -1,11 +1,18 @@
 <!--index.wxml-->
 <view class="swiper-container">
     <swiper indicator-dots="true" indicator-active-color="#000" indicator-color="rgba(0, 0, 0, .3)" autoplay="true" interval="5000" duration="350">
-      <block wx:for="{{swiper}}" wx:key="{{index}}">
-          <swiper-item>
-              <image class="swiper-item" src="{{item.img}}" mode="aspectFill" />
-          </swiper-item>
-      </block>
+        <block wx:for="{{swiper}}" wx:key="{{index}}">
+            <swiper-item>
+                <block wx:if="{{item.route == null}}">
+                    <image class="swiper-item" src="{{item.img}}" mode="aspectFill" />
+                </block>
+                <block wx:elseif="{{item.route}}">
+                    <navigator url="{{item.route}}">
+                        <image class="swiper-item" src="{{item.img}}" mode="aspectFill" />
+                    </navigator>
+                </block>
+            </swiper-item>
+        </block>
     </swiper>
 </view>
 
