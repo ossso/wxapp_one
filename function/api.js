@@ -31,7 +31,7 @@ class API {
             break
             // 动态模式
             case "1":
-                url += "zb_system/cmd.php?cmd=os_wxapi&v=v1&mode=" + type.toLowerCase()
+                url += "zb_system/cmd.php?act=os_wxapi&v=v1&mode=" + type.toLowerCase()
             break
             // index.php伪静态模式
             case "2":
