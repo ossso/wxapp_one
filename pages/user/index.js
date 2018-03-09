@@ -6,7 +6,18 @@ Page({
         name: config.name
     },
     onShow() {
-        this.loadInfo()
+        if (app.globalData.isLogin) {
+            this.loadInfo()
+        } else {
+            app.globalData.login_cb = function() {
+                wx.switchTab({
+                    url: '/pages/user/index'
+                })
+            }
+            wx.redirectTo({
+                url: '/pages/user/login'
+            })
+        }
     },
     /**
      * 下拉刷新
