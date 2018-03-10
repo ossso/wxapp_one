@@ -110,8 +110,8 @@ Page({
                     // 判断是否有swiper
                     if (res.swiper) {
                         res.swiper.map(item => {
-                            item.img = img.Imgurl
-                            delete item.img
+                            item.img = item.Imgurl
+                            delete item.Imgurl
                             delete item.Order
                             delete item.Related
                             delete item.Type
