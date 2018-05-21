@@ -85,7 +85,7 @@ class Login {
      * 获取用户的微信个人信息
      */
     getWXUserInfo() {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             wx.getUserInfo({
                 success: res => {
                     this.data.rawData = res.rawData
@@ -106,7 +106,7 @@ class Login {
      * 调用微信的登录
      */
     wxLogin() {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             wx.login({
                 success: res => {
                     this.data.code = res.code
@@ -125,7 +125,7 @@ class Login {
      */
     wxCheckSession() {
         let _this = this
-        return new Promise((resolve, reject) =>  {
+        return new Promise((resolve) =>  {
             wx.checkSession({
                 success: () => {
                     resolve(true)
@@ -142,7 +142,7 @@ class Login {
      * 远程服务器登录
      */
     serverLogin() {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             api.req('login', {
                 code: this.data.code,
                 rawData: this.data.rawData,
