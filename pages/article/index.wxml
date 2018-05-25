@@ -1,9 +1,8 @@
-<import src="../../modules/wxParse/wxParse.wxml" />
-
+<!-- 文章详情页 -->
 <view class="article-page" wx:if="{{info}}">
     <view class="article-title">{{info.Title}}</view>
     <view class="article-content">
-        <template is="wxParse" data="{{wxParseData: article.nodes}}"/>
+        <rich-text nodes="{{ info.ContentNodes }}"></rich-text>
     </view>
     <view class="article-info">
         <view class="post-date">{{info.PostDate}}</view>
@@ -11,6 +10,9 @@
             <text class="author-name">{{info.Author.StaticName}}</text>
             <text class="cate-name">{{info.Category.Name}}</text>
         </view>
+    </view>
+    <view class="article-link" wx:if="{{ info && info.Url}}" bindtap="copyArticleUrl">
+        <text>文章链接: {{ info.Url }}</text>
     </view>
 </view>
 <import src="/pages/template/article-media.wxml" />

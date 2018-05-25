@@ -8,7 +8,7 @@
 @import "../components/comment-item";
 
 .article-page {
-    padding: 0 30rpx;
+    padding: 0 30rpx 30rpx;
     background: #fff;
 }
 
@@ -21,11 +21,62 @@
 .article-content {
     line-height: 1.8;
     font-size: 28rpx;
-    color: #555;
-    .wxParse-pre {
-        padding: 10rpx;
-        background: #f5f5f5;
-    }
+    color: #333;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow: hidden;
+}
+
+.wxapp-html-tag-p {
+    margin-bottom: .5em;
+}
+
+.wxapp-html-tag-img {
+    max-width: 100%;
+}
+
+.wxapp-html-tag-pre {
+    box-sizing: border-box;
+    margin: 20rpx;
+    font-size: .9em;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+}
+
+.wxapp-html-tag-blockquote {
+    box-sizing: border-box;
+    padding: 20rpx;
+    margin-bottom: .5em;
+    border-left: 8rpx solid #ddd;
+    background: #f5f5f5;
+}
+
+.wxapp-html-tag-tips {
+    padding: 10rpx;
+    color: #888;
+    font-size: 24rpx;
+    text-align: center;
+    background: #eee;
+}
+
+/**
+ * 实体空格符号
+ */
+.wxapp-nbsp {
+    display: inline-block;
+    width: .4em;
+}
+
+.wxapp-html-type-pre {
+    box-sizing: border-box;
+    padding: 1rpx;
+    margin-bottom: .5em;
+    background: #f5f5f5;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 .article-info {
@@ -37,6 +88,17 @@
     .author-name {
         margin-right: 20rpx;
     }
+}
+
+.article-link {
+    box-sizing: border-box;
+    padding: 20rpx;
+    line-height: 30rpx;
+    font-size: 24rpx;
+    border-radius: 8rpx;
+    color: #666;
+    background: #f5f5f5;
+    cursor: pointer;
 }
 
 .article-media-container {
