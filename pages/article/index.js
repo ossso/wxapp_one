@@ -12,6 +12,7 @@ const richTextNotHtmlTag = ['embed', 'iframe'];
 Page({
     data: {
         info: false,
+        images: [],
         art_loading: false,
         commentList: [],
         loading: false,
@@ -69,19 +70,20 @@ Page({
             if (err) {
                 app.model(err.msg)
             } else {
-                this.hanlderInfo(res)
+                const article = { ...res };
+                this.hanlderInfo(article);
                 this.setData({
-                    info: res,
+                    info: article,
                     commentList: []
-                })
+                });
                 setTimeout(() => {
                     this.loadComment(1)
-                }, 100)
+                }, 100);
                 wx.setNavigationBarTitle({
                     title: res.Title
-                })
+                });
             }
-            cb && cb()
+            cb && cb();
         })
         return this
     },
@@ -134,8 +136,12 @@ Page({
             item.OpenType = "redirect"
         })
         // 处理正文内容
-        const content = info.Content.replace(/&nbsp;/g, '<i class="wxapp-nbsp"></i>');
+        const content = info.Content.replace(/&nbsp;/g, '<i class="wxapp-nbsp"></i>').replace(/(\r|\n){1,}/, "<br>");
         const contentNodes = HtmlToJson.html2json(content);
+        // 保存图片
+        this.setData({
+            images: contentNodes.images.map(item => item.attr.src),
+        });
         info.ContentNodes = this.getNodes(contentNodes.nodes);
         delete info.Content;
         delete info.Intro;
@@ -328,6 +334,14 @@ Page({
     // 刷新评论列表
     refreshCommentList() {
         this.loadComment(1);
+    },
+    articleLongTap() {
+        console.log('aaa')
+        if (this.data.images.length) {
+            wx.previewImage({
+                urls: [...this.data.images]
+            })
+        }
     },
     // 复制链接地址
     copyArticleUrl() {

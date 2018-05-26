@@ -1,7 +1,7 @@
 <!-- 文章详情页 -->
 <view class="article-page" wx:if="{{info}}">
     <view class="article-title">{{info.Title}}</view>
-    <view class="article-content">
+    <view class="article-content" binglongpres="articleLongTap">
         <rich-text nodes="{{ info.ContentNodes }}"></rich-text>
     </view>
     <view class="article-info">
