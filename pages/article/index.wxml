@@ -1,8 +1,15 @@
 <!-- 文章详情页 -->
+<import src="../../modules/wxParse/wxParse.wxml" />
+
 <view class="article-page" wx:if="{{info}}">
     <view class="article-title">{{info.Title}}</view>
-    <view class="article-content" binglongpres="articleLongTap">
-        <rich-text nodes="{{ info.ContentNodes }}"></rich-text>
+    <view class="article-content">
+        <block wx:if="{{ parse_type == 2 }}">
+            <template is="wxParse" data="{{ wxParseData: article.nodes }}"/>
+        </block>
+        <block wx:else>
+            <rich-text nodes="{{ info.ContentNodes }}"></rich-text>
+        </block>
     </view>
     <view class="article-info">
         <view class="post-date">{{info.PostDate}}</view>
