@@ -140,12 +140,25 @@ Page({
      * 处理list的数据
      */
     handlerListData(list) {
-        list.map(item => {
+        list.forEach(item => {
             item.PostDate = (function() {
                 var date = new Date()
                 date.setTime(parseInt(item.PostTime)*1000)
                 return utils.formatDate(date)
-            })()
-        })
+            })();
+            delete item.Alias;
+            delete item.IsTop;
+            delete item.IsLock;
+            delete item.Intro;
+            delete item.Category.Intro;
+            delete item.Category.Alias;
+            delete item.Category.RootID;
+            delete item.Category.ParentID;
+            delete item.Category.Count;
+            delete item.Category.Order;
+            delete item.Author.Level;
+            delete item.Author.Alias;
+            delete item.Author.Intro;
+        });
     }
 })

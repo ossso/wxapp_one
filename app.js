@@ -1,24 +1,24 @@
 //app.js
-const api = require('function/api')
-const login = require('function/login')
+const api = require('function/api');
+const login = require('function/login');
 
-var options = {
+const options = {
     // 开发者自定义操作
     libs: {
         api,
         login
     },
     globalData: {},
-    onLaunch: function() {
+    onLaunch() {
         // 记录网络状态
         wx.getNetworkType({
             success: res => {
-                this.globalData.networkType = res.networkType
+                this.globalData.networkType = res.networkType;
             }
-        })
+        });
         wx.onNetworkStatusChange(res => {
-            this.globalData.networkType = res.networkType
-        })
+            this.globalData.networkType = res.networkType;
+        });
     },
     // 进入小程序验证一次
     onShow() {
@@ -34,26 +34,26 @@ var options = {
                 } else {
                     this.globalData.isLogin = true
                 }
-            })
+            });
         }
     },
     msg(content) {
         wx.showToast({
             title: content,
-            icon: "none"
-        })
-        return this
+            icon: "none",
+        });
+        return this;
     },
     model(content) {
         wx.showModal({
             title: "提示",
             showCancel: false,
-            content
-        })
-        return this
+            content,
+        });
+        return this;
     },
 }
 
-App(options)
+App(options);
 
-options.libs.api.appGlobalData = options.globalData
+options.libs.api.appGlobalData = options.globalData;
