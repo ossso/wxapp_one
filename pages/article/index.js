@@ -232,12 +232,6 @@ Page({
             date.setTime(parseInt(item.PostTime)*1000)
             return utils.formatTime(date)
         })()
-        item.Author.Avatar = (() => {
-            if (item.Metas && item.Metas.os_wxapp_avatar) {
-                return item.Metas.os_wxapp_avatar
-            }
-            return item.Author.Avatar
-        })()
     },
     // 清楚HtmlTag标签
     clearHTMLTag(str) {
